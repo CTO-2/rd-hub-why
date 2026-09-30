@@ -3,172 +3,73 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>R&amp;D Hub — Strategic Pillars</title>
+<title>R&amp;D Hub Pillars</title>
 <style>
-  /* ── Component styles ─────────────────────────────────────────
-     Self-contained. Allianz Neo is used when available on the
-     page/host, otherwise a clean system sans is the fallback.
-     ──────────────────────────────────────────────────────────── */
-  .rdp-section {
-    font-family: "Allianz Neo", "Segoe UI", system-ui, -apple-system, sans-serif;
-    background: #ffffff;
-    box-sizing: border-box;
-    max-width: 1440px;
-    margin: 0 auto;
-    padding: 32px 24px 28px;
-  }
-  .rdp-grid {
-    display: grid;
-    grid-template-columns: repeat(4, minmax(0, 1fr));
-    gap: 16px;
-    align-items: stretch;
-  }
-  @media (max-width: 759px) { .rdp-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
-  @media (max-width: 439px) { .rdp-grid { grid-template-columns: minmax(0, 1fr); } }
-
-  .rdp-card {
-    position: relative;
-    display: flex;
-    flex-direction: column;
-    height: 100%;
-    box-sizing: border-box;
-    background: #ffffff;
-    border: 1px solid #C3D7E9;
-    border-radius: 12px;
-    overflow: hidden;
-    cursor: pointer;
-    outline: none;
-    z-index: 1;
-    box-shadow: 0 2px 8px rgba(18, 43, 84, 0.10);
-    transition: transform 200ms cubic-bezier(.2,.7,.3,1),
-                box-shadow 200ms ease,
-                border-color 200ms ease;
-  }
-  .rdp-card:focus-visible { border-color: var(--accent); }
-
-  /* Active = hovered (only when nothing is selected) or selected */
-  .rdp-card.is-active {
-    border-color: var(--accent);
-    z-index: 2;
-    transform: translateY(-4px) scale(1.035);
-    box-shadow: 0 16px 32px rgba(18, 43, 84, 0.18), 0 2px 6px rgba(16, 24, 40, 0.05);
-  }
-
-  .rdp-bar {
-    height: 4px;
-    flex-shrink: 0;
-    background: var(--accent);
-    transition: height 200ms ease;
-  }
-  .rdp-card.is-active .rdp-bar { height: 6px; }
-
-  .rdp-body {
-    padding: 18px 18px 20px;
-    display: flex;
-    flex-direction: column;
-    gap: 12px;
-    flex: 1;
-  }
-  .rdp-title {
-    margin: 0;
-    font: 700 19px/25px "Allianz Neo", "Segoe UI", system-ui, sans-serif;
-    color: #003781;
-    text-wrap: pretty;
-  }
-  .rdp-desc {
-    margin: 0;
-    font: 400 15px/22px "Allianz Neo", "Segoe UI", system-ui, sans-serif;
-    color: #414141;
-    text-wrap: pretty;
-  }
-  @media (prefers-reduced-motion: reduce) {
-    .rdp-card, .rdp-bar { transition: none; }
-  }
+  body { margin: 0; background: #fff; }
+  a { color: #003781; } a:hover { color: #00559f; }
+  .rd-wrap { background:#fff; font-family:'Allianz Neo',system-ui,sans-serif; padding:32px 24px 28px; max-width:1240px; margin:0 auto; box-sizing:border-box; }
+  .rd-grid { display:grid; grid-template-columns:repeat(4,minmax(0,1fr)); gap:14px; align-items:stretch; }
+  .rd-card { position:relative; display:flex; flex-direction:column; height:100%; box-sizing:border-box; background:#fff;
+    border:1px solid #C3D7E9; border-top:4px solid var(--accent); border-radius:12px; overflow:hidden; cursor:pointer; outline:none; z-index:1;
+    box-shadow:0 2px 8px rgba(18,43,84,0.10);
+    transition:transform 200ms cubic-bezier(.2,.7,.3,1), box-shadow 200ms ease, border-color 200ms ease; }
+  .rd-card.active { border-color:var(--accent); z-index:2; transform:translateY(-4px) scale(1.035);
+    box-shadow:0 16px 32px rgba(18,43,84,0.18), 0 2px 6px rgba(16,24,40,0.05); }
+  .rd-body { padding:16px 16px 18px; display:flex; flex-direction:column; gap:8px; flex:1; }
+  .rd-card h3 { margin:0; font:700 16px/21px 'Allianz Neo',sans-serif; color:#003781; text-wrap:pretty; }
+  .rd-card p { margin:0; font:400 16px/24px 'Allianz Neo',sans-serif; color:#414141; text-wrap:pretty; }
 </style>
 </head>
-<body style="margin:0;background:#ffffff">
-
-<!-- ══════════════════════════════════════════════════════════════
-     R&D HUB — STRATEGIC PILLARS
-     To update content: edit the text inside each card below.
-     To change a colour: edit the --accent value on that card.
-     Wheel palette: orange rgb(248,98,0) · blue rgb(19,160,211)
-                    green  rgb(95,205,138) · yellow rgb(251,198,56)
-     ══════════════════════════════════════════════════════════════ -->
-<section class="rdp-section">
-  <div class="rdp-grid" id="rdp-grid">
-
-    <!-- CARD 1 — orange -->
-    <article class="rdp-card" style="--accent: rgb(248,98,0)" tabindex="0" role="button" aria-pressed="false">
-      <div class="rdp-bar"></div>
-      <div class="rdp-body">
-        <h3 class="rdp-title">Drive Customer Success</h3>
-        <p class="rdp-desc">We go beyond IT management - delivering innovation with real customer impact. Our goal: exceed expectations and fuel growth.</p>
-      </div>
+<body>
+<section class="rd-wrap">
+  <div class="rd-grid" id="rd-grid">
+    <article class="rd-card" data-pillar tabindex="0" role="button" aria-pressed="false" style="--accent:rgb(251,198,56)">
+      <div class="rd-body"><h3>Drive Customer Success</h3><p>We go beyond IT management - delivering innovation with real customer impact. Our goal: exceed expectations and fuel growth.</p></div>
     </article>
-
-    <!-- CARD 2 — blue -->
-    <article class="rdp-card" style="--accent: rgb(19,160,211)" tabindex="0" role="button" aria-pressed="false">
-      <div class="rdp-bar"></div>
-      <div class="rdp-body">
-        <h3 class="rdp-title">Futureproof Allianz Technology</h3>
-        <p class="rdp-desc">Innovation keeps us one step ahead. We adapt fast, act proactively, and stay ready for what’s next.</p>
-      </div>
+    <article class="rd-card" data-pillar tabindex="0" role="button" aria-pressed="false" style="--accent:rgb(95,205,138)">
+      <div class="rd-body"><h3>Futureproof Allianz Technology</h3><p>Innovation keeps us one step ahead. We adapt fast, act proactively, and stay ready for what’s next.</p></div>
     </article>
-
-    <!-- CARD 3 — green -->
-    <article class="rdp-card" style="--accent: rgb(95,205,138)" tabindex="0" role="button" aria-pressed="false">
-      <div class="rdp-bar"></div>
-      <div class="rdp-body">
-        <h3 class="rdp-title">Boost Our Collective Potential</h3>
-        <p class="rdp-desc">Our strength is our people and our attitude. We unlock ideas, solve challenges together, and create value across the group.</p>
-      </div>
+    <article class="rd-card" data-pillar tabindex="0" role="button" aria-pressed="false" style="--accent:rgb(19,160,211)">
+      <div class="rd-body"><h3>Boost Our Collective Potential</h3><p>Our strength is our people and our attitude. We unlock ideas, solve challenges together, and create value across the group.</p></div>
     </article>
-
-    <!-- CARD 4 — yellow -->
-    <article class="rdp-card" style="--accent: rgb(251,198,56)" tabindex="0" role="button" aria-pressed="false">
-      <div class="rdp-bar"></div>
-      <div class="rdp-body">
-        <h3 class="rdp-title">Work Smarter and Create Impact</h3>
-        <p class="rdp-desc">Innovation amplifies the impact of our work, improves service, and helps us make a real difference- every day.</p>
-      </div>
+    <article class="rd-card" data-pillar tabindex="0" role="button" aria-pressed="false" style="--accent:rgb(248,98,0)">
+      <div class="rd-body"><h3>Work Smarter and Create Impact</h3><p>Innovation amplifies the impact of our work, improves service, and helps us make a real difference- every day.</p></div>
     </article>
-
   </div>
 </section>
-
 <script>
-/* Interaction:
-   hover  = temporary highlight, only while nothing is selected
-   click  = persistent selection (hover on other cards is ignored)
-   click outside the cards = deselect everything            */
 (function () {
-  var cards = Array.prototype.slice.call(document.querySelectorAll('.rdp-card'));
-  var selected = null;
-  var hovered = null;
-
-  function paint() {
-    cards.forEach(function (card, i) {
+  var grid = document.getElementById('rd-grid');
+  var cards = Array.prototype.slice.call(grid.querySelectorAll('[data-pillar]'));
+  var selected = null, hovered = null;
+  function render() {
+    cards.forEach(function (c, i) {
       var active = selected !== null ? selected === i : hovered === i;
-      card.classList.toggle('is-active', active);
-      card.setAttribute('aria-pressed', selected === i ? 'true' : 'false');
+      c.classList.toggle('active', active);
+      c.setAttribute('aria-pressed', selected === i ? 'true' : 'false');
     });
   }
-
-  cards.forEach(function (card, i) {
-    card.addEventListener('mouseenter', function () { if (selected === null) { hovered = i; paint(); } });
-    card.addEventListener('mouseleave', function () { if (selected === null) { hovered = null; paint(); } });
-    card.addEventListener('click', function () { selected = i; hovered = null; paint(); });
-    card.addEventListener('keydown', function (e) {
-      if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); selected = i; hovered = null; paint(); }
+  cards.forEach(function (c, i) {
+    c.addEventListener('click', function () { selected = i; render(); });
+    c.addEventListener('keydown', function (e) {
+      if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); selected = i; render(); }
     });
+    c.addEventListener('mouseenter', function () { if (selected === null) { hovered = i; render(); } });
+    c.addEventListener('mouseleave', function () { if (selected === null) { hovered = null; render(); } });
   });
-
   document.addEventListener('mousedown', function (e) {
-    if (!e.target.closest || !e.target.closest('.rdp-card')) {
-      if (selected !== null) { selected = null; hovered = null; paint(); }
+    if (!e.target.closest || !e.target.closest('[data-pillar]')) {
+      if (selected !== null) { selected = null; hovered = null; render(); }
     }
   });
+  function measure() {
+    var w = grid.clientWidth;
+    var cols = w >= 620 ? 4 : w >= 400 ? 2 : 1;
+    grid.style.gridTemplateColumns = 'repeat(' + cols + ', minmax(0, 1fr))';
+  }
+  if (window.ResizeObserver) new ResizeObserver(measure).observe(grid);
+  window.addEventListener('resize', measure);
+  measure();
 })();
 </script>
 </body>
